@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #2980b9;
+      --bg-color: #ecf0f1;
+      --text-color: #2c3e50;
+      --input-bg: #ffffff;
+      --border-color: #bdc3c7;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark {
+      --bg-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      --primary-color: #ffffff;
+      --accent-color: #3498db;
+      --text-color: #ffffff;
+      --input-bg: rgba(255, 255, 255, 0.1);
+      --border-color: #888;
+      --shadow-color: rgba(0, 0, 0, 0.4);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .registration-form {
+      background-color: var(--input-bg);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 20px var(--shadow-color);
+      backdrop-filter: blur(10px);
+    }
+
+    .registration-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      font-size: 1em;
+      transition: border 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .submit-btn:hover {
+      background-color: #2471a3;
+      transform: scale(1.02);
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ffffff44;
+      color: var(--text-color);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #ffffff88;
+    }
+
+    @media (max-width: 600px) {
+      .registration-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <button class="toggle-btn" onclick="toggleTheme()" id="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <form class="registration-form">
+    <h2>Student Registration</h2>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" name="full-name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required />
+    </div>
+
+    <div class="form-group">
+      <label for="student-id">Student ID</label>
+      <input type="text" id="student-id" name="student-id" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="address">Home Address</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Mobile Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+    </div>
+
+    <div class="form-group">
+      <label for="landline">Landline Number</label>
+      <input type="tel" id="landline" name="landline" />
+    </div>
+
+    <button type="submit" class="submit-btn">Register</button>
+  </form>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-toggle').firstElementChild;
+      body.classList.toggle('dark');
+      icon.className = body.classList.contains('dark') ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  </script>
+
+</body>
+</html>
